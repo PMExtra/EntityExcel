@@ -1,0 +1,24 @@
+﻿{
+  "version": "0.1.0-60507",
+  "description": "EntityExcelDemo Console Application",
+  "authors": [ "PM" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+
+  "commands": {
+    "EntityExcelDemo": "EntityExcelDemo"
+  },
+
+  "frameworks": {
+    "dnx451": {
+      "dependencies": {
+        "EntityExcel": "0.1.0-*"
+      }
+    }
+  }
+}

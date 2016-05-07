@@ -1,0 +1,21 @@
+﻿{
+  "version": "0.1.0-60507",
+  "description": "Entity mapping framework with excel document.",
+  "authors": [ "PM" ],
+  "tags": [ "excel", "entity", "mapping" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "frameworks": {
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Data": "4.0.0.0",
+        "System.Xml": "4.0.0.0"
+      },
+      "dependencies": {
+        "DataMapper": "0.1.0-*",
+        "ExcelDataReader": "2.1.2.3"
+      }
+    }
+  }
+}

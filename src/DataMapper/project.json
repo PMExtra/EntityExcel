@@ -1,0 +1,17 @@
+﻿{
+  "version": "0.1.0-60507",
+  "description": "A simple library to map DataRow to Model.",
+  "authors": [ "PM" ],
+  "tags": [ "System.Data", "DataSet", "DataTable", "Mapper" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "frameworks": {
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Data": "4.0.0.0",
+        "System.Xml": "4.0.0.0"
+      }
+    }
+  }
+}
