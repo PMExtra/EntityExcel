@@ -2,14 +2,18 @@
 using System.Data;
 using System.Linq;
 
-namespace DataMapper
+namespace DataMapper.Extensions
 {
     public static class DataRowExtension
     {
         public static T MapTo<T>(this DataRow row) where T : new()
         {
-            var model = new T();
-            var type = model.GetType();
+            return (T)MapTo(row, typeof(T));
+        }
+
+        public static object MapTo(this DataRow row, Type type)
+        {
+            var model = Activator.CreateInstance(type);
 
             foreach (var property in type.GetProperties().Where(p => p.CanWrite))
             {

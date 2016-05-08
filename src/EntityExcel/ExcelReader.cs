@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.IO;
+using DataMapper.Models;
 using Excel;
 
 namespace EntityExcel
@@ -46,6 +47,15 @@ namespace EntityExcel
         {
             _dataReader.Dispose();
             _fileStream.Dispose();
+        }
+
+        public TableMapper<T> GetMapper<T>(string tableName = null) where T : new()
+        {
+            if (string.IsNullOrEmpty(tableName))
+            {
+                tableName = typeof(T).Name;
+            }
+            return new TableMapper<T>(this[tableName]);
         }
     }
 }

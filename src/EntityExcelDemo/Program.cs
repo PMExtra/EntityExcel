@@ -1,5 +1,4 @@
 ﻿using System;
-using DataMapper;
 using EntityExcel;
 
 namespace EntityExcelDemo
@@ -11,7 +10,7 @@ namespace EntityExcelDemo
         public static void Main(string[] args)
         {
             var reader = new ExcelReader(FilePath);
-            var students = reader["Students"].MapTo<StudentModel>();
+            var students = reader.GetMapper<StudentModel>("Students");
             foreach (var student in students)
             {
                 Console.WriteLine($"Id: {student.Id} \tName: {student.Name} \tGender: {student.Gender} \tGrade: {student.Grade} \tScore: {student.Score}");
