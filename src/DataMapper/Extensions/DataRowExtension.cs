@@ -14,6 +14,15 @@ namespace DataMapper.Extensions
         public static object MapTo(this DataRow row, Type type)
         {
             var model = Activator.CreateInstance(type);
+            return MapTo(row, model);
+        }
+
+        public static object MapTo(this DataRow row, object destination, Type type = null)
+        {
+            if (type == null)
+            {
+                type = destination.GetType();
+            }
 
             foreach (var property in type.GetProperties().Where(p => p.CanWrite))
             {
@@ -22,16 +31,16 @@ namespace DataMapper.Extensions
                     var data = row[property.Name];
                     if (property.PropertyType.IsEnum)
                     {
-                        property.SetValue(model, Convert.ToInt32(data));
+                        property.SetValue(destination, Convert.ToInt32(data));
                     }
                     else
                     {
-                        property.SetValue(model, Convert.ChangeType(data, property.PropertyType));
+                        property.SetValue(destination, Convert.ChangeType(data, property.PropertyType));
                     }
                 }
             }
 
-            return model;
+            return destination;
         }
     }
 }
